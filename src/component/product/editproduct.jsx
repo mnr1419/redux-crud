@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { connect } from "react-redux";
+import { connect } from "react-redux";
 class EditProduct extends Component {
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -71,10 +71,9 @@ class EditProduct extends Component {
     );
   }
 }
-// function mapStateToProps(state) {
-//   return {
-//     product: state.products[0],
-//   };
-//}
-//export default connect(mapStateToProps)(EditProduct);
-export default EditProduct;
+function mapStateToProps(state) {
+  return {
+    product: state.products[0],
+  };
+}
+export default connect(mapStateToProps)(EditProduct);

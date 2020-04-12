@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { connect } from "react-redux";
+import { connect } from "react-redux";
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +69,4 @@ class AddProduct extends Component {
     );
   }
 }
-//export default connect()(AddProduct);
-
-export default AddProduct;
+export default connect()(AddProduct);

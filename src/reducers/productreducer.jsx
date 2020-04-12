@@ -30,35 +30,36 @@ const ProductReducer = (state = intialState, action) => {
       //     p.id === product.id ? product : p
       //   ),
       // };
-      // return {
-      //   ...state,
-      //   products: state.products.map((product) => {
-      //     if (product.id !== action.product.id) {
-      //       return product;
-      //     } else {
-      //       return {
-      //         ...product,
-      //         name: action.product.name,
-      //         price: action.product.price,
-      //       };
-      //     }
-      //   }),
-      // };
-
-      let products = state.products.map((p) => {
-        if (p.id === action.product.id) {
-          return {
-            ...p,
-            name: action.product.name,
-            price: action.product.price,
-          };
-        } else {
-          return products;
-        }
-      });
       return {
-        products: products,
+        ...state,
+        products: state.products.map((product) => {
+          if (product.id !== action.product.id) {
+            return product;
+          } else {
+            return {
+              ...state.products,
+              id: action.product.id,
+              name: action.product.name,
+              price: action.product.price,
+            };
+          }
+        }),
       };
+
+    // let products = state.products.map((p) => {
+    //   if (p.id === action.product.id) {
+    //     return {
+    //       ...p,
+    //       name: action.product.name,
+    //       price: action.product.price,
+    //     };
+    //   } else {
+    //     return products;
+    //   }
+    // });
+    // return {
+    //   products: products,
+    // };
 
     default:
       return state;
