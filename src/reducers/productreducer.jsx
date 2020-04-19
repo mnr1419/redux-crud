@@ -14,7 +14,10 @@ const ProductReducer = (state = intialState, action) => {
       };
     case "EDIT_PRODUCT":
       return {
-        products: state.products.filter((product) => product.id === action.id),
+        ...state,
+        editingProduct: state.products.filter(
+          (product) => product.id === action.id
+        ),
       };
     // case "UPDATE_PRODUCT":
     //   return {

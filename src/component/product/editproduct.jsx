@@ -38,7 +38,6 @@ class EditProduct extends Component {
               type="Number"
               name="id"
               placeholder="Id"
-              readOnly="true"
               defaultValue={this.props.product.id}
               onChange={this.handleChange}
             ></input>
@@ -73,7 +72,7 @@ class EditProduct extends Component {
 }
 function mapStateToProps(state) {
   return {
-    product: state.products[0],
+    product: state.editingProduct[0],
   };
 }
 export default connect(mapStateToProps)(EditProduct);

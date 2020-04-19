@@ -24,6 +24,7 @@ class ProductsList extends React.Component {
     this.props.history.push("/editproduct");
   }
   render() {
+    console.log("check");
     return (
       <div>
         <h3>Product List</h3>
